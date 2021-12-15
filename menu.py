@@ -8,6 +8,7 @@ def menu():
     print("1. Ingresar nuevo numero")
     print("2. Listar numeros de telefono guardados")
     print("3. Cargar XML")
+    print("4. Generar Grafico")
     opcion_seleccionada=input("Que desea hacer?\n")
 
     if opcion_seleccionada=="1":
@@ -53,7 +54,11 @@ def menu():
         time.sleep(3)
         clearConsole()
         menu()
-
+    elif opcion_seleccionada=="4":
+        numeros.grafica()
+        input("Presione enter para volver al menu principal...")
+        clearConsole()
+        menu()
     else:
         print("porfavor elija una opcion valida")
         time.sleep(2)

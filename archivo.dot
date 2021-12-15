@@ -1,0 +1,8 @@
+digraph {
+rankdir=LR;
+Sandra[label="Sandra Salguero"]
+Maria[label="Maria Hernandez"]
+Juanito[label="Juanito Perez"]
+Sandra->Maria
+Maria->Juanito
+}

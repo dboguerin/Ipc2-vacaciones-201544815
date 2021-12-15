@@ -7,13 +7,13 @@
         <apellido>Perez</apellido>
     </contactos>
     <contactos>
-        <telefono>87456123</telefono>
+        <telefono>874561223</telefono>
         <nombre>Maria</nombre>
         <apellido>Hernandez</apellido>
     </contactos>  
     <contactos>
         <telefono>787523156</telefono>
-        <nombre>Giselle</nombre>
+        <nombre>Sandra</nombre>
         <apellido>Salguero</apellido>
     </contactos>  
 </agenda>

@@ -1,3 +1,5 @@
+import os,time
+
 class nodo:
     def __init__(self, numero = None, nombre= None, apellido = None,siguiente = None):
         self.numero = numero
@@ -11,27 +13,6 @@ class lista:
 
     def añadir_inicio(self, numero, nombre, apellido):
         self.cabeza = nodo(numero=numero,nombre=nombre,apellido=apellido, siguiente=self.cabeza)  
-    
-    #def es_vacia(self):
-# return self.cabeza == None
-
-#def obtener_ultimo(self):
-# temp = self.cabeza
-# while(temp.siguiente is not None):
-# temp = temp.siguiente
-# return temp.numero
-
-#def borrar(self, key):
-# actual = self.cabeza
-# anterior = None
-# while actual and actual.numero != key:
-# anterior = actual
-# actual = actual.siguiente
-# if anterior is None:
-# self.cabeza = actual.siguiente
-# elif actual:
-# anterior.siguiente = actual.siguiente
-# actual.siguiente = None
 
     def verificarRepetido( self, x ):
         contador=1
@@ -50,3 +31,67 @@ class lista:
             print(str(contador)+") "+nodo.nombre+" "+nodo.apellido+": "+str(nodo.numero)+"\n")
             contador+=1
             nodo = nodo.siguiente
+    
+    def grafica(self):
+        anterior=""
+        nodos=""
+        uniones=""
+        quotes='"'
+        contador=1
+        nodo = self.cabeza
+        while nodo != None:
+            #print(str(contador)+") "+nodo.nombre+" "+nodo.apellido+": "+str(nodo.numero)+"\n")
+            nodos=nodos+nodo.nombre+'[label='+quotes+nodo.nombre+" "+nodo.apellido+quotes+']\n'
+            if anterior!="":
+                uniones=uniones+anterior+"->"+nodo.nombre+"\n"
+                anterior=nodo.nombre
+            else:
+                anterior=nodo.nombre
+            contador+=1
+            nodo = nodo.siguiente
+        grafico="digraph {\nrankdir=LR;\n"+nodos+uniones+"}"
+        print(grafico)
+        file = open("archivo.dot", "w", encoding='utf-8')
+        file.write(grafico)
+        file.close()
+        os.system('dot -Tpng archivo.dot -o salida.png')
+
+        self.generando()
+        os.system("xdg-open salida.png")
+
+    def generando(self):
+        for x in range(3):
+            print(x)
+            os.system("clear")
+            print("Generando grafico, espere un momento")
+            time.sleep(0.5)
+            os.system("clear")
+    
+            print("Generando grafico, espere un momento.")
+            time.sleep(0.5)
+            os.system("clear")
+    
+            print("Generando grafico, espere un momento..")
+            time.sleep(0.5)
+            os.system("clear")
+    
+            print("Generando grafico, espere un momento...")
+            time.sleep(0.5)
+            os.system("clear")
+
+
+    
+    #    digraph {
+    #rankdir=LR;
+    #inicio [label="Inicio", shape = "plaintext"]
+    #A [label="A", shape = doublecircle]
+    #B [label="B", shape = circle]
+    #C [label="C", shape = doublecircle]
+    #inicio ->A
+    #A->F [label = "1"]
+    #A->B [label = "0"]
+    #B->B [label = "1"]
+    #B->C [label = "0"]
+    #C->C [label = "1"]
+    #C->C [label = "0"]
+    #}
